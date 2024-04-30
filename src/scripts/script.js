@@ -1,5 +1,6 @@
 import './sliders'
 import './mustache.min.js'
+import petsList from './pets-list.json'
 
 const isMobile = {
     Android: function () {
@@ -146,213 +147,212 @@ window.onload = function () {
     })
 
 
-    async function setDefaultProducts() {
+    function setDefaultProducts() {
         let filterAll = document.querySelector('[data-sort="all"]')
         if (filterAll)
-        filterAll.classList.add("_hover")
+            filterAll.classList.add("_hover")
         fetchProducts()
     }
 
     //Products
-    async function getProducts(itemButton) {
+    function getProducts(itemButton) {
         fetchProducts(itemButton)
     }
 
-    async function fetchProducts(itemButton){
-        const file = "../src/scripts/pets-list.json";
-        let response = await fetch(file, {
-            method: "GET"
-        });
-        if (response.ok) {
-            let result = await response.json()
-            loadItems(result, itemButton);
-        }
+    async function fetchProducts(itemButton) {
+        // const file = "../src/scripts/pets-list.json";
+        // let response = await fetch(file, {
+        //     method: "GET"
+        // });
+        // if (response.ok) {
+        //     let result = await response.json()
+        loadItems(petsList, itemButton);
+    }
+}
+
+function loadItems(data, itemButton) {
+    let petType;
+    let petCardTemplate = document.querySelector('#list-slide__template').innerHTML
+    let petsSlider = document.querySelector('.slider-list__wrapper')
+    if (itemButton) {
+        petType = itemButton.dataset.sort || 'all'
+    } else {
+        petType = 'all'
     }
 
-    function loadItems(data, itemButton) {
-        let petType;
-        let petCardTemplate = document.querySelector('#list-slide__template').innerHTML
-        let petsSlider = document.querySelector('.slider-list__wrapper')
-        if (itemButton) {
-            petType = itemButton.dataset.sort || 'all'
-        } else {
-            petType = 'all'
+    petsSlider.innerHTML = "";
+
+    data.petsList.forEach(pet => {
+        if (petType == "all") {
+            let renderedHtml = Mustache.render(petCardTemplate, pet);
+            petsSlider.innerHTML += renderedHtml;
         }
+        if (pet.type == petType) {
+            let renderedHtml = Mustache.render(petCardTemplate, pet);
+            petsSlider.innerHTML += renderedHtml;
+        }
+    });
+}
 
-        petsSlider.innerHTML = "";
+//Add to cart
+function addToCart(button) {
+    let cartStartMessage = document.querySelector('.body-cart__start-messge')
+    cartStartMessage.innerHTML = ""
 
-        data.petsList.forEach(pet => {
-            if (petType == "all") {
-                let renderedHtml = Mustache.render(petCardTemplate, pet);
-                petsSlider.innerHTML += renderedHtml;
-            }
-            if (pet.type == petType) {
-                let renderedHtml = Mustache.render(petCardTemplate, pet);
-                petsSlider.innerHTML += renderedHtml;
-            }
-        });
+    let cartIcon = document.querySelector('.cart-header__icon')
+    let cartQuantity = document.querySelector('.cart-header__icon span')
+
+    if (cartQuantity) {
+        cartQuantity.innerHTML++
+    } else {
+        cartIcon.innerHTML += "<span>1</span>"
     }
 
-    //Add to cart
-    function addToCart(button) {
-        let cartStartMessage = document.querySelector('.body-cart__start-messge')
-        cartStartMessage.innerHTML = ""
+    let cardBody = button.closest(".list-slide__body");
 
-        let cartIcon = document.querySelector('.cart-header__icon')
-        let cartQuantity = document.querySelector('.cart-header__icon span')
+    let cardImageCopySrc = cardBody.querySelector(".list-slide__img img").src
+    let cardTitle = cardBody.querySelector(".list-slide__title").innerText
+    let cardPrice = cardBody.querySelector(".footer-list__price span").innerText.replace(/\s/g, '')
+    let template = document.querySelector('#card-item-template').innerHTML
+    let cardId = cardBody.dataset.bodyId
+    let cartMain = document.querySelector('.body-cart__main')
 
-        if (cartQuantity) {
-            cartQuantity.innerHTML++
-        } else {
-            cartIcon.innerHTML += "<span>1</span>"
-        }
+    let product = cartMain.querySelector(`[data-body-id="${cardId}"]`)
 
-        let cardBody = button.closest(".list-slide__body");
-
-        let cardImageCopySrc = cardBody.querySelector(".list-slide__img img").src
-        let cardTitle = cardBody.querySelector(".list-slide__title").innerText
-        let cardPrice = cardBody.querySelector(".footer-list__price span").innerText.replace(/\s/g, '')
-        let template = document.querySelector('#card-item-template').innerHTML
-        let cardId = cardBody.dataset.bodyId
-        let cartMain = document.querySelector('.body-cart__main')
-
-        let product = cartMain.querySelector(`[data-body-id="${cardId}"]`)
-
-        if (product) {
-            let productCount = product.querySelector('.item-count__number')
-            let productPrice = product.querySelector('.card-item__price span')
-            let productPriceValue = Number(product.querySelector('.card-item__price').dataset.price.replace(/\s/g, ''))
-
-            product.querySelector(".item-count__number").innerHTML++
-            productPrice.innerHTML = Number(productCount.innerHTML) * productPriceValue
-        } else {
-            let renderedHtml = Mustache.render(template, {
-                title: cardTitle,
-                price: cardPrice,
-                src: cardImageCopySrc,
-                id: cardId
-            });
-            cartMain.innerHTML += renderedHtml;
-        }
-
-        let total = document.querySelector('.body-cart__price')
-        let totalValue = document.querySelector('.body-cart__price').innerHTML
-        total.innerHTML = Number(totalValue) + Number(cardPrice)
-
-        let cartPrice = document.querySelector('.cart-header__text')
-
-        if (cartPrice.querySelector("span")) {
-            let cartPriceValue = document.querySelector('.cart-header__text span').innerHTML
-            cartPrice.querySelector("span").innerHTML = Number(cartPriceValue) + Number(cardPrice)
-        } else {
-            cartPrice.innerHTML = `<span>${Number(cardPrice)}</span>usd.`
-        }
-    }
-
-    //Update card
-    function updateCard(actionButton) {
-        let cartStartMessage = document.querySelector('.body-cart__start-messge')
-
-        let cartIcon = document.querySelector('.cart-header__icon')
-        let cartQuantity = document.querySelector('.cart-header__icon span')
-
-        // prices
-        let total = document.querySelector('.body-cart__price')
-        let cartPrice = document.querySelector('.cart-header__text')
-
-
-        let product = actionButton.closest(".card-item")
+    if (product) {
         let productCount = product.querySelector('.item-count__number')
         let productPrice = product.querySelector('.card-item__price span')
         let productPriceValue = Number(product.querySelector('.card-item__price').dataset.price.replace(/\s/g, ''))
 
-        if (actionButton.id == "action-minus") {
-            cartQuantity.innerHTML--
-            productCount.innerHTML--
-
-            let productSum = Number(productCount.innerHTML) * productPriceValue
-            productPrice.innerHTML = productSum
-
-            // If the cart is empty:
-            if (productCount.innerHTML < 1) {
-                product.remove()
-                if (document.querySelector('.body-cart__main').children.length < 1) {
-                    cartStartMessage.innerHTML = "The cart is empty"
-                    cartIcon.innerHTML = ""
-                    cartPrice.innerHTML = ""
-                }
-            }
-
-            let totalValue = Number(document.querySelector('.body-cart__price').innerHTML)
-            total.innerHTML = totalValue - productPriceValue
-
-            if (cartPrice.querySelector("span"))
-                cartPrice.querySelector("span").innerHTML = totalValue - productPriceValue
-
-        }
-        if (actionButton.id == "action-plus") {
-            cartQuantity.innerHTML++
-            productCount.innerHTML++
-
-            let productSum = Number(productCount.innerHTML) * productPriceValue
-            productPrice.innerHTML = productSum
-
-            let totalValue = Number(document.querySelector('.body-cart__price').innerHTML)
-            total.innerHTML = totalValue + productPriceValue
-            cartPrice.querySelector("span").innerHTML = totalValue + productPriceValue
-        }
-
-        console.log(productCount)
-    }
-
-    //Gallery
-    function showBigPhoto(playItem) {
-        // let playSection = document.querySelector('.play__body')
-
-        let cloneImage = playItem.cloneNode(true)
-        cloneImage.classList.add("_big")
-        cloneImage.classList.remove("_active")
-        cloneImage.addEventListener('click', function (e) {
-            if (e.target.classList.contains("_big")) {
-                cloneImage.remove()
-            }
-        })
-
-        document.body.append(cloneImage)
-
-    }
-
-    // OnlickScroll
-    const array = document.querySelectorAll('[data-goto]');
-    const itemsHeader = document.querySelector('.main-header__items')
-    if (array.length > 0) {
-        array.forEach(item => {
-            item.addEventListener("click", onMenuLinkClick);
-        });
+        product.querySelector(".item-count__number").innerHTML++
+        productPrice.innerHTML = Number(productCount.innerHTML) * productPriceValue
     } else {
-        singleItem.addEventListener("click", onMenuLinkClick)
+        let renderedHtml = Mustache.render(template, {
+            title: cardTitle,
+            price: cardPrice,
+            src: cardImageCopySrc,
+            id: cardId
+        });
+        cartMain.innerHTML += renderedHtml;
     }
 
-    function onMenuLinkClick(e) {
-        const targetElement = e.target;
-        const burger = document.querySelector('.burger')
+    let total = document.querySelector('.body-cart__price')
+    let totalValue = document.querySelector('.body-cart__price').innerHTML
+    total.innerHTML = Number(totalValue) + Number(cardPrice)
 
-        if (targetElement.dataset.goto && document.querySelector(targetElement.dataset.goto)) {
-            const gotoBlock = document.querySelector(targetElement.dataset.goto);
-            const gotoBlockValue = gotoBlock.getBoundingClientRect().top + pageYOffset - document.querySelector('.header__body').offsetHeight;
+    let cartPrice = document.querySelector('.cart-header__text')
 
-            if (itemsHeader.classList.contains('_active')) {
-                document.body.classList.remove('_lock');
-                itemsHeader.classList.remove('_active')
-                burger.classList.remove('_active')
+    if (cartPrice.querySelector("span")) {
+        let cartPriceValue = document.querySelector('.cart-header__text span').innerHTML
+        cartPrice.querySelector("span").innerHTML = Number(cartPriceValue) + Number(cardPrice)
+    } else {
+        cartPrice.innerHTML = `<span>${Number(cardPrice)}</span>usd.`
+    }
+}
+
+//Update card
+function updateCard(actionButton) {
+    let cartStartMessage = document.querySelector('.body-cart__start-messge')
+
+    let cartIcon = document.querySelector('.cart-header__icon')
+    let cartQuantity = document.querySelector('.cart-header__icon span')
+
+    // prices
+    let total = document.querySelector('.body-cart__price')
+    let cartPrice = document.querySelector('.cart-header__text')
+
+
+    let product = actionButton.closest(".card-item")
+    let productCount = product.querySelector('.item-count__number')
+    let productPrice = product.querySelector('.card-item__price span')
+    let productPriceValue = Number(product.querySelector('.card-item__price').dataset.price.replace(/\s/g, ''))
+
+    if (actionButton.id == "action-minus") {
+        cartQuantity.innerHTML--
+        productCount.innerHTML--
+
+        let productSum = Number(productCount.innerHTML) * productPriceValue
+        productPrice.innerHTML = productSum
+
+        // If the cart is empty:
+        if (productCount.innerHTML < 1) {
+            product.remove()
+            if (document.querySelector('.body-cart__main').children.length < 1) {
+                cartStartMessage.innerHTML = "The cart is empty"
+                cartIcon.innerHTML = ""
+                cartPrice.innerHTML = ""
             }
-
-            window.scrollTo({
-                top: gotoBlockValue,
-                behavior: "smooth"
-            });
-            e.preventDefault();
         }
+
+        let totalValue = Number(document.querySelector('.body-cart__price').innerHTML)
+        total.innerHTML = totalValue - productPriceValue
+
+        if (cartPrice.querySelector("span"))
+            cartPrice.querySelector("span").innerHTML = totalValue - productPriceValue
+
     }
+    if (actionButton.id == "action-plus") {
+        cartQuantity.innerHTML++
+        productCount.innerHTML++
+
+        let productSum = Number(productCount.innerHTML) * productPriceValue
+        productPrice.innerHTML = productSum
+
+        let totalValue = Number(document.querySelector('.body-cart__price').innerHTML)
+        total.innerHTML = totalValue + productPriceValue
+        cartPrice.querySelector("span").innerHTML = totalValue + productPriceValue
+    }
+
+    console.log(productCount)
+}
+
+//Gallery
+function showBigPhoto(playItem) {
+    // let playSection = document.querySelector('.play__body')
+
+    let cloneImage = playItem.cloneNode(true)
+    cloneImage.classList.add("_big")
+    cloneImage.classList.remove("_active")
+    cloneImage.addEventListener('click', function (e) {
+        if (e.target.classList.contains("_big")) {
+            cloneImage.remove()
+        }
+    })
+
+    document.body.append(cloneImage)
 
 }
+
+// OnlickScroll
+const array = document.querySelectorAll('[data-goto]');
+const itemsHeader = document.querySelector('.main-header__items')
+if (array.length > 0) {
+    array.forEach(item => {
+        item.addEventListener("click", onMenuLinkClick);
+    });
+} else {
+    singleItem.addEventListener("click", onMenuLinkClick)
+}
+
+function onMenuLinkClick(e) {
+    const targetElement = e.target;
+    const burger = document.querySelector('.burger')
+
+    if (targetElement.dataset.goto && document.querySelector(targetElement.dataset.goto)) {
+        const gotoBlock = document.querySelector(targetElement.dataset.goto);
+        const gotoBlockValue = gotoBlock.getBoundingClientRect().top + pageYOffset - document.querySelector('.header__body').offsetHeight;
+
+        if (itemsHeader.classList.contains('_active')) {
+            document.body.classList.remove('_lock');
+            itemsHeader.classList.remove('_active')
+            burger.classList.remove('_active')
+        }
+
+        window.scrollTo({
+            top: gotoBlockValue,
+            behavior: "smooth"
+        });
+        e.preventDefault();
+    }
+}
+
