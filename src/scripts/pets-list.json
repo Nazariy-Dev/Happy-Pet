@@ -1,0 +1,71 @@
+{
+	"petsList": [
+		{
+			"id": 1,
+			"month": 5,
+			"awards": 3,
+			"title": "Doberman",
+			"text": "New perfect friend for all family. It guards and adors",
+			"image": "doberman.png",
+			"type": "dog",
+			"eat" : "predator",
+			"price": "1 200"
+		},
+		{
+			"id": 2,
+			"month": 4,
+			"awards": 5,
+			"title": "Cat",
+			"text": "Perfect friend for rainy dayy",
+			"image": "british.png",
+			"type": "cat",
+			"eat" : "predator",
+			"price": "599"
+		},
+		{
+			"id": 3,
+			"month": 5,
+			"awards": 3,
+			"title": "Chimpanzee",
+			"text": "A pet for those who dont wats to get bored",
+			"image": "chimpansey.png",
+			"type": "monkey",
+			"eat" : "predator",
+			"price": "2300"
+		},
+		{
+			"id": 4,
+			"month": 5,
+			"awards": 3,
+			"title": "Hamster",
+			"text": "Can bite you. Just a little",
+			"image": "hamster.png",
+			"type": "hamster",
+			"eat" : "herbivore",
+			"price": "159"
+		},
+		{
+			"id": 5,
+			"month": 5,
+			"awards": 3,
+			"title": "Parrot",
+			"text": "Very talky friend",
+			"image": "parrot.png",
+			"type": "parot",
+			"eat" : "herbivore",
+			"price": "299"
+		},
+		{
+			"id": 6,
+			"month": 3,
+			"awards": 2,
+			"title": "Labrador",
+			"text": "New perfect friend for all family. It guards and adors",
+			"image": "labrador.png",
+			"type": "dog",
+			"eat" : "predator",
+			"price": "2 100"
+		}
+
+	]
+}

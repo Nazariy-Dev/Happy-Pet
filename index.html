@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./src/styles/style.scss">
+    <title>Happy pet</title>
+</head>
+
+<body>
+    <header class="header">
+        <div class="header__body">
+            <div class="header__wrapper _container">
+                <div class="header__logo logo-header">
+                    <a class="logo-header__logo"><img class="_icon-paw" src="./src/img/logo.svg" alt=""></a>
+                    <div class="logo-header__text">HAPPY PET</div>
+                </div>
+                <div class="header__main main-header">
+                    <ul class="main-header__items">
+                        <li data-goto=".page__main" class="main-header__item">Main</li>
+                        <li data-goto=".page__list" class="main-header__item">Pets</li>
+                        <li data-goto=".page__about" class="main-header__item">About us</li>
+                        <li data-goto=".page__contacts" class="main-header__item">Contacts</li>
+                        <div class="main-header__comunic">
+                            <div class="main-header__tele _icon-phone"></div>
+                            <div class="main-header__number">+7 988 658-34-45</div>
+                        </div>
+                    </ul>
+                </div>
+                <div class="header__cart cart-header">
+                    <div class="cart-header__icon _icon-cart"></div>
+                    <div class="cart-header__text"></div>
+                    <div class="cart-header__arrow _icon-arrow-down"></div>
+                    <div class="cart-header__body body-cart">
+                        <div class="body-cart__container _container">
+                            <template id="card-item-template">
+                                <div data-body-id="{{id}}" class="body-cart__item card-item">
+                                    <div class="card-item__body">
+                                        <div class="card-item__img">
+                                            <img src={{src}} alt="">
+                                        </div>
+                                        <div class="card-item__content">
+                                            <div class="card-item__title">{{title}}</div>
+                                            <div class="card-item__count item-count">
+                                                <div id="action-minus" class="item-count__action"></div>
+                                                <div class="item-count__number">1</div>
+                                                <div id="action-plus"
+                                                    class="item-count__action item-count__action_vert"></div>
+                                            </div>
+                                            <div data-price="{{price}}" class="card-item__price"><span>{{price}}</span>$
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </template>
+                            <div class="body-cart__main">
+                            </div>
+                            <div class="body-cart__content">
+                                <div class="body-cart__start-messge">The cart is empty</div>
+                                <div class="body-cart__footer">
+                                    <div class="body-cart__sum">Total:<span class="body-cart__price">0</span><span
+                                            class="body-cart__currency">usd</span></div>
+                                    <div class="body-cart__btn">Buy</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="header__burger burger">
+                    <div class="burger__item"></div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="page">
+        <div class="page__main main">
+            <div class="main__container _container">
+                <div class="main__body _container">
+                    <div class="main__content ">
+                        <div class="main__header _header">Your new pet with a shipping right to your house</div>
+                        <div class="main__text">Online pet shop - convenient solution when you don’t want
+                            to leave your house</div>
+                        <div data-goto=".page__list" class="main__bnt _btn">Watch friends</div>
+                    </div>
+                    <div class="main__images">
+                        <img class="main__image main__image-cat" src="./src/img/main/cat.png" alt="">
+                        <img class="main__image main__image-dog" src="./src/img/main/dog.png" alt="">
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+
+        <div class="page__benefits benefits">
+            <div class="benefits__container _container">
+                <div class="benefits__body">
+                    <div class="benefits__header _header">Why our friends are chosen</div>
+                    <div class="benefits__items">
+                        <div class="benefits__item item-benefit">
+                            <div class="item-benefit__logo item-benefit__logo_g"></div>
+                            <div class="item-benefit__content content-benefit">
+                                <div class="content-benefit__title">There are a lot of them</div>
+                                <div class="content-benefit__text">Huge selection of animals, birds and pets</div>
+                            </div>
+                        </div>
+                        <div class="benefits__item item-benefit">
+                            <div class="item-benefit__logo item-benefit__logo_y"></div>
+                            <div class="item-benefit__content content-benefit">
+                                <div class="content-benefit__title">They are healthy</div>
+                                <div class="content-benefit__text">We take care of every pet we have</div>
+                            </div>
+                        </div>
+                        <div class="benefits__item item-benefit">
+                            <div class="item-benefit__logo item-benefit__logo_v"></div>
+                            <div class="item-benefit__content content-benefit">
+                                <div class="content-benefit__title">They are loved</div>
+                                <div class="content-benefit__text">We surround our friends with love and care</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="main__slider slider-main">
+                    <div class="slider-main__body">
+                        <div class="slider-main__wrapper swiper-wrapper">
+                            <div class="slider-main__slide swiper-slide">
+                                <div class="slider-main__content slider-content">
+                                    <div data-goto=".page__list" data-sort="dog" class="slider-content__body">Dogs</div>
+                                    <div class="slider-content__arrow">
+                                        <img src="./src/img/icoon-arrow.svg" alt="">
+                                    </div>
+                                </div>
+                                <div class="slider-main__image">
+                                    <img src="./src/img/main/labrador.png" alt="">
+                                </div>
+                            </div>
+                            <div class="slider-main__slide swiper-slide">
+                                <div class="slider-main__content slider-content">
+                                    <div data-goto=".page__list"   data-sort="parot" class="slider-content__body">Parrots</div>
+                                    <div class="slider-content__arrow">
+                                        <img src="./src/img/icoon-arrow.svg" alt="">
+                                    </div>
+                                </div>
+                                <div class="slider-main__image">
+                                    <img src="./src/img/main/parrot.png" alt="">
+                                </div>
+                            </div>
+                            <div class="slider-main__slide swiper-slide">
+                                <div class="slider-main__content slider-content">
+                                    <div data-goto=".page__list"  data-sort="monkey" class="slider-content__body">Monkeys</div>
+                                    <div class="slider-content__arrow">
+                                        <img src="./src/img/icoon-arrow.svg" alt="">
+                                    </div>
+                                </div>
+                                <div class="slider-main__image">
+                                    <img src="./src/img/list/chimpansey.png" alt="">
+                                </div>
+                            </div>
+                            <div class="slider-main__slide swiper-slide">
+                                <div class="slider-main__content slider-content">
+                                    <div data-goto=".page__list" data-sort="hamster" class="slider-content__body">Hamsters</div>
+                                    <div class="slider-content__arrow">
+                                        <img src="./src/img/icoon-arrow.svg" alt="">
+                                    </div>
+                                </div>
+                                <div class="slider-main__image">
+                                    <img src="./src/img/list/hamster.png" alt="">
+                                </div>
+                            </div>
+                            <div class="slider-main__slide swiper-slide">
+                                <div class="slider-main__content slider-content">
+                                    <div data-goto=".page__list"  data-sort="cat" class="slider-content__body">Cats</div>
+                                    <div class="slider-content__arrow">
+                                        <img src="./src/img/icoon-arrow.svg" alt="">
+                                    </div>
+                                </div>
+                                <div class="slider-main__image">
+                                    <img src="./src/img/list/british.png" alt="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slider-main__arrows slider-arrows">
+                        <button type="button" class="slider-arrow slider-arrow_white slider-arrow_prev"></button>
+                        <button type="button" class="slider-arrow slider-arrow_white slider-arrow_next"></button>
+                    </div>
+                    <div class="swiper-scrollbar"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="page__list list">
+            <div class="list__container _container">
+                <div class="list__body">
+                    <div class="list__header _header">Pet’s list</div>
+                    <div class="list__selection selection-list">
+                        <div data-sort="all" class="selection-list__item">All</div>
+                        <div data-sort="dog" class="selection-list__item">Dogs</div>
+                        <div data-sort="cat" class="selection-list__item">Cats</div>
+                        <div data-sort="parot" class="selection-list__item">Parots</div>
+                        <div data-sort="hamster" class="selection-list__item">Hamsters</div>
+                        <div data-sort="monkey" class="selection-list__item">Monkeys</div>
+                    </div>
+                    <div class="list__slider slider-list">
+                        <template id="list-slide__template">
+                            <div class="slider-list__slide list-slide swiper-slide">
+                                <div class="list-slide__specs specs-list">
+                                    <div class="specs-list__item specs-list_month month-specs">
+                                        <div class="item-specs__number month-specs__number">{{month}}</div>
+                                        <div class="item-specs__text month-specs__text">month</div>
+                                    </div>
+                                    <div class="specs-list__item specs-list_awards awards-specs">
+                                        <div class="item-specs__number awards-specs__number">{{awards}}</div>
+                                        <div class="item-specs__text awards-specs__text">awards</div>
+                                    </div>
+                                </div>
+                                <div data-body-id="{{id}}" class="list-slide__body">
+                                    <div class="list-slide__img">
+                                        <img src="./src/img/list/{{image}}" alt="">
+                                    </div>
+                                    <div class="list-slide__content">
+                                        <div class="list-slide__title">{{title}}</div>
+                                        <div class="list-slide__description">{{text}}</div>
+                                        <div class="list-slide__hashtags hashtags-slide">
+                                            <div class="hashtags-slide__item hashtags-slide__type">{{type}}</div>
+                                            <div class="hashtags-slide__item hashtags-slide__eat">{{eat}}</div>
+                                        </div>
+                                        <div class="list-slide__footer footer-list">
+                                            <div data-price="{{price}}" class="footer-list__price">
+                                                <span>{{price}}</span>$
+                                            </div>
+                                            <div class="footer-list__logo">
+                                                <button class="footer-list__btn">Buy</button>
+                                                
+                                                <img src="./src/img/list/paw.svg" alt="">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </template>
+                        <div class="slider-list__body">
+                            <div class="slider-list__wrapper swiper-wrapper">
+                                <!-- <div class="slider-list__slide list-slide swiper-slide">
+                                    <div class="list-slide__specs specs-list">
+                                        <div class="specs-list__item specs-list_month month-specs">
+                                            <div class="item-specs__number month-specs__number">4</div>
+                                            <div class="item-specs__text month-specs__text">month</div>
+                                        </div>
+                                        <div class="specs-list__item specs-list_awards awards-specs">
+                                            <div class="item-specs__number awards-specs__number">2</div>
+                                            <div class="item-specs__text awards-specs__text">awards</div>
+                                        </div>
+                                    </div>
+                                    <div data-body-id="1" class="list-slide__body">
+                                        <div class="list-slide__img">
+                                            <img src="./src/img/list/doberman.png" alt="">
+                                        </div>
+                                        <div class="list-slide__content">
+                                            <div class="list-slide__title">Doberman</div>
+                                            <div class="list-slide__description">New perfect friend for all family. It
+                                                guards
+                                                and adors</div>
+                                            <div class="list-slide__hashtags hashtags-slide">
+                                                <div class="hashtags-slide__item hashtags-slide__type">dog</div>
+                                                <div class="hashtags-slide__item hashtags-slide__eat">predator</div>
+                                            </div>
+                                            <div class="list-slide__footer footer-list">
+                                                <div data-price="1 200" class="footer-list__price"><span>1 200</span>$
+                                                </div>
+                                                <div class="footer-list__logo">
+                                                    <button class="footer-list__btn">Buy</button>
+                                                    <img src="./src/img/list/paw.svg" alt="">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="slider-list__slide list-slide swiper-slide">
+                                    <div class="list-slide__specs specs-list">
+                                        <div class="specs-list__item specs-list_month month-specs">
+                                            <div class="item-specs__number month-specs__number">4</div>
+                                            <div class="item-specs__text month-specs__text">month</div>
+                                        </div>
+                                        <div class="specs-list__item specs-list_awards awards-specs">
+                                            <div class="item-specs__number awards-specs__number">2</div>
+                                            <div class="item-specs__text awards-specs__text">awards</div>
+                                        </div>
+                                    </div>
+                                    <div data-body-id="2" class="list-slide__body">
+                                        <div class="list-slide__img">
+                                            <img src="./src/img/list/british.png" alt="">
+                                        </div>
+                                        <div class="list-slide__content">
+                                            <div class="list-slide__title">Cat</div>
+                                            <div class="list-slide__description">Perfect friend for rainy dayy</div>
+                                            <div class="list-slide__hashtags hashtags-slide">
+                                                <div class="hashtags-slide__item hashtags-slide__type">cat</div>
+                                                <div class="hashtags-slide__item hashtags-slide__eat">predator</div>
+                                            </div>
+                                            <div class="list-slide__footer footer-list">
+                                                <div data-price="599" class="footer-list__price"><span>599</span>$</div>
+                                                <div class="footer-list__logo">
+                                                    <button class="footer-list__btn">Buy</button>
+                                                    <img src="./src/img/list/paw.svg" alt="">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="slider-list__slide list-slide swiper-slide">
+                                    <div class="list-slide__specs specs-list">
+                                        <div class="specs-list__item specs-list_month month-specs">
+                                            <div class="item-specs__number month-specs__number">4</div>
+                                            <div class="item-specs__text month-specs__text">month</div>
+                                        </div>
+                                        <div class="specs-list__item specs-list_awards awards-specs">
+                                            <div class="item-specs__number awards-specs__number">2</div>
+                                            <div class="item-specs__text awards-specs__text">awards</div>
+                                        </div>
+                                    </div>
+                                    <div data-body-id="3" class="list-slide__body">
+                                        <div class="list-slide__img">
+                                            <img src="./src/img/list/chimpansey.png" alt="">
+                                        </div>
+                                        <div class="list-slide__content">
+                                            <div class="list-slide__title">Chimpanzee</div>
+                                            <div class="list-slide__description">A pet for those who dont wats to get
+                                                bored
+                                            </div>
+                                            <div class="list-slide__hashtags hashtags-slide">
+                                                <div class="hashtags-slide__item hashtags-slide__type">monkey</div>
+                                                <div class="hashtags-slide__item hashtags-slide__eat">herbivore</div>
+                                            </div>
+                                            <div class="list-slide__footer footer-list">
+                                                <div data-price="2 300" class="footer-list__price"><span>2 300</span>$
+                                                </div>
+                                                <div class="footer-list__logo">
+                                                    <button class="footer-list__btn">Buy</button>
+                                                    <img src="./src/img/list/paw.svg" alt="">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="slider-list__slide list-slide swiper-slide">
+                                    <div class="list-slide__specs specs-list">
+                                        <div class="specs-list__item specs-list_month month-specs">
+                                            <div class="item-specs__number month-specs__number">4</div>
+                                            <div class="item-specs__text month-specs__text">month</div>
+                                        </div>
+                                        <div class="specs-list__item specs-list_awards awards-specs">
+                                            <div class="item-specs__number awards-specs__number">2</div>
+                                            <div class="item-specs__text awards-specs__text">awards</div>
+                                        </div>
+                                    </div>
+                                    <div data-body-id="4" class="list-slide__body">
+                                        <div class="list-slide__img">
+                                            <img src="./src/img/list/hamster.png" alt="">
+                                        </div>
+                                        <div class="list-slide__content">
+                                            <div class="list-slide__title">Hamster</div>
+                                            <div class="list-slide__description">Can bite you. Just a little
+                                            </div>
+                                            <div class="list-slide__hashtags hashtags-slide">
+                                                <div class="hashtags-slide__item hashtags-slide__type">hamster</div>
+                                                <div class="hashtags-slide__item hashtags-slide__eat">herbivore</div>
+                                            </div>
+                                            <div class="list-slide__footer footer-list">
+                                                <div data-price="156" class="footer-list__price"><span>156</span>$</div>
+                                                <div class="footer-list__logo">
+                                                    <button class="footer-list__btn">Buy</button>
+                                                    <img src="./src/img/list/paw.svg" alt="">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div> -->
+                            </div>
+                        </div>
+                        <div class="slider-list__arrows slider-arrows">
+                            <button type="button" class="slider-arrow slider-arrow_white slider-arrow_prev"></button>
+                            <button type="button" class="slider-arrow slider-arrow_white slider-arrow_next"></button>
+                        </div>
+                        <div class="slider-list__dots"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="page__play play">
+            <div class="play__container _container">
+                <div class="play__header _header">We love to play</div>
+                <div class="play__body">
+                    <div class="play__section section-play">
+                        <div class="section-play__item">
+                            <img src="./src/img/play/01.png" alt="">
+                        </div>
+                        <div class="section-play__item">
+                            <img src="./src/img/play/02.png" alt="">
+                        </div>
+                    </div>
+                    <div class="play__section section-play">
+                        <div class="section-play__item">
+                            <img src="./src/img/play/03.png" alt="">
+                        </div>
+                        <div class="section-play__item">
+                            <img src="./src/img/play/04.png" alt="">
+                        </div>
+                    </div>
+                    <div class="play__section section-play">
+                        <div class="section-play__item">
+                            <img src="./src/img/play/05.png" alt="">
+                        </div>
+                        <div class="section-play__item">
+                            <img src="./src/img/play/06.png" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="page__about about">
+            <div class="about__container _container">
+                <div class="about__header _header">About a Happy Pet nursery</div>
+                <div class="about__body">
+                    <div class="about__content">
+                        <div class="about__title _header">We are a dream team</div>
+                        <div class="about__text">As pet owners ourselves, we love helping animals to find forever homes.
+                            And we
+                            donate a % of our income to selected pets charities. Lorem ipsum dolor sit amet, consectetur
+                            adipiscing
+                            elit. Vivamus semper orci quis tellus auctor, at dapibus lorem blandit. Fusce cursus
+                            accumsan nulla, eu
+                            posuere purus commodo in.
+                            <div> In porttitor enim quis odio placerat, quis tincidunt dui blandit. Pellentesque
+                                efficitur vehicula ipsum, dignissim viverra risus blandit.
+                            </div>
+                        </div>
+                        <div class="about__btn">Learn more
+                            <div class="about__logo">
+                                <img src="./src/img/about/about.svg" alt="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="about__photo photo-about">
+                        <img src="./src/img/about/work.png" alt="">
+                        <div class="photo-about__cirlce photo-about__cirlce_top">
+                            <img src="./src/img/about/racoon.jpg" alt="">
+                        </div>
+                        <div class="photo-about__cirlce photo-about__cirlce_right"></div>
+                        <div class="photo-about__cirlce photo-about__cirlce_left"></div>
+                        <div class="photo-about__cirlce_blur cirlce-blur cirlce-blur_red"></div>
+                        <div class="photo-about__cirlce_blur cirlce-blur cirlce-blur_blue"></div>
+                        <div class="photo-about__cirlce_blur cirlce-blur cirlce-blur_yellow"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="page__contacts contacts">
+            <div class="contacts__container _container">
+                <div class="contacts__wrapper">
+                    <div class="contacts__body">
+                        <div class="contacts__header _header">Any questions left? Ask us!
+                        </div>
+                        <form action="" class="contacts__form form-contacts">
+                            <div class="form-contacts__main">
+                                <input required required type="text" placeholder="Enter name"
+                                    class="form-contacts__item form-contacts__item_name">
+                                <input required type="email" placeholder="Enter e-mail"
+                                    class="form-contacts__item form-contacts__item_email">
+                                <input required pattern="[+]{1}[0-9]{12}" type="text" name="tel" placeholder="Enter phone"
+                                    class="form-contacts__item form-contacts__item_tel">
+                                <select required class="form-contacts__item select-contacts">
+                                    <option value="" disabled selected hidden>Question topic</option>
+                                    <option value="Pricing" class="select-contacts_option">Pricing</option>
+                                    <option value="Health" class="select-contacts_option">Health</option>
+                                    <option value="Bread" class="select-contacts_option">Bread</option>
+                                </select>
+                            </div>
+                            <div class="form-contacts__message">
+                                <!-- <label type="text" for="message" class="form-contacts__item form-contacts__item_message">Enter your massage</label> -->
+                                <div class="form-contacts__input contacts-message">
+                                    <input required placeholder="Enter your massage" type="text" name="message" class="form-contacts__item contacts-message__text">
+                                    <button type="submit" class="contacts-message__btn">
+                                        <img src="./src/img/ask/arrow.png" alt="">
+                                    </button>
+                                </div>
+                                <div class="form-contacts__checkbox">I agree that my personal data will be collected
+                                    <input required type="checkbox" class="form-contacts__check">
+                                    <span class="form-contacts__new-check"></span>
+                                </div>
+                                <div class="form-contacts__checkbox">I accept terms of service
+                                    <input required type="checkbox" class="form-contacts__check">
+                                    <span class="form-contacts__new-check"></span>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="contacts__photo">
+                        <img src="./src/img/ask/dog.png" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer__container _container">
+            <div class="footer__wrapper">
+                <div class="footer__logo">
+                    <img src="./src/img/footer/logo.svg" alt="">
+                </div>
+                <div class="footer__rights">
+                    2022 © All rights reserved
+                </div>
+                <div  class="footer__arrow">
+                    <img  class="_btn" data-goto=".page__main" src="./src/img/footer/arrow.png" alt="">
+                </div>
+                <div class="footer__phone">
+                    +7 988 658-34-45
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.5/swiper-bundle.min.js"></script>
+    <script type="module" src="./src/scripts/script.js"></script>
+</body>
+
+</html>
