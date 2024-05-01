@@ -57,7 +57,7 @@ body {
     top: 0;
     left: 0;
 
-    @media (max-width: $md3+px) {
+    @media (max-width: ($md3+px)) {
         min-height: 5px;
     }
 
@@ -81,7 +81,7 @@ body {
             backdrop-filter: blur(7px);
 
             .main-header__items {
-                @media (max-width: $md2+px) {
+                @media (max-width: ($md2+px)) {
                     top: 73px;
 
                 }
@@ -102,7 +102,7 @@ body {
         justify-content: space-between;
         align-items: center;
 
-        @media (max-width: $md2+px) {
+        @media (max-width: ($md2+px)) {
             justify-content: normal;
         }
 
@@ -127,7 +127,7 @@ body {
     justify-content: center;
     justify-content: flex-start;
 
-    @media (max-width: $md2+px) {
+    @media (max-width: ($md2+px)) {
         flex: 1 1 100%;
     }
 
@@ -157,7 +157,7 @@ body {
         align-items: center;
         transition: left 0.3s ease 0s, top 0.3s ease 0s;
 
-        @media (max-width: $md2+px) {
+        @media (max-width: ($md2+px)) {
             position: fixed;
             left: -100%;
 
@@ -223,7 +223,7 @@ body {
             transform: translateY(2px);
             transition: all 0.3s ease 0s;
 
-            @media (max-width: $md2+px) {
+            @media (max-width: ($md2+px)) {
                 background-color: white;
             }
         }
@@ -324,13 +324,13 @@ body {
             color: white;
             font-size: 21px;
 
-            @media (max-width: $md2+px) {
+            @media (max-width: ($md2+px)) {
                 font-size: 18px;
             }
 
         }
 
-        @media (max-width: $md2+px) {
+        @media (max-width: ($md2+px)) {
             width: 40px;
             height: 40px;
         }
@@ -346,7 +346,7 @@ body {
 
         font-size: 8px;
 
-        @media (max-width: $md2+px) {
+        @media (max-width: ($md2+px)) {
             font-size: 6px;
         }
 
@@ -404,7 +404,7 @@ body {
         }
     }
 
-    @media (min-width: $md2+px) {
+    @media (min-width: ($md2+px)) {
         display: none;
     }
 
@@ -430,7 +430,7 @@ body {
     visibility: hidden;
     opacity: 0;
 
-    @media (max-width: $md2+px) {
+    @media (max-width: ($md2+px)) {
         // top: 129px;
     }
 
@@ -473,7 +473,7 @@ body {
         align-items: center;
         margin-bottom: 20px;
 
-        @media (max-width: $md4+px) {
+        @media (max-width: ($md4+px)) {
             flex-wrap: wrap;
         }
 
@@ -485,7 +485,7 @@ body {
         font-size: 40px;
         font-weight: 700;
 
-        @media (max-width: $md4+px) {
+        @media (max-width: ($md4+px)) {
             flex: 0 0 100%;
         }
 
@@ -519,11 +519,11 @@ body {
         border: 2px solid rgba(0, 0, 0, 0.43);
         border-radius: 55px;
 
-        @media (max-width: $md3+px) {
+        @media (max-width: ($md3+px)) {
             font-size: 30px;
         }
 
-        @media (max-width: $md4+px) {
+        @media (max-width: ($md4+px)) {
             flex: 1 1 100%;
             font-size: 40px;
             text-align: center;
@@ -701,7 +701,7 @@ body {
         // height: 760px;
         position: relative;
 
-        @media (max-width: $md4+px) {
+        @media (max-width: ($md4+px)) {
             flex-wrap: wrap;
         }
 
@@ -710,9 +710,9 @@ body {
 
     // .main__content
     &__content {
-        flex: 0 0 340/1060 * 100%;
+        flex: 0 0 calc(340/1060 * 100%);
 
-        @media (max-width: $md4+px) {
+        @media (max-width: ($md4+px)) {
             flex: 0 0 100%;
         }
 
@@ -727,7 +727,7 @@ body {
         padding-top: 84px;
         line-height: 40px;
 
-        @media (max-width: $md2+px) {
+        @media (max-width: ($md2+px)) {
             // font-size: 25px;
         }
 
@@ -766,13 +766,13 @@ body {
         align-self: flex-end;
         position: relative;
 
-        @media (max-width: $md4+px) {
+        @media (max-width: ($md4+px)) {
             margin: 0 auto;
             height: 312px;
             width: 359px;
         }
 
-        @media (max-width: $md3+px) {
+        @media (max-width: ($md3+px)) {
             max-width: 425px;
         }
 
@@ -795,7 +795,7 @@ body {
             right: -87px;
         }
 
-        @media (max-width: $md2+px) {
+        @media (max-width: ($md2+px)) {
             display: none;
         }
 
@@ -803,7 +803,7 @@ body {
             right: -105px;
         }
 
-        @media (max-width: $md3+px) {
+        @media (max-width: ($md3+px)) {
             display: block;
             width: 136%;
             right: -8px;
@@ -811,7 +811,7 @@ body {
 
 
 
-        @media (max-width: $md4+px) {
+        @media (max-width: ($md4+px)) {
             width: 50%;
             right: 7px;
 
@@ -833,11 +833,11 @@ body {
             left: -85px;
         }
 
-        @media (max-width: $md3+px) {
+        @media (max-width: ($md3+px)) {
             display: none;
         }
 
-        @media (max-width: $md4+px) {
+        @media (max-width: ($md4+px)) {
             display: block;
             width: 82%;
             left: 5px;
@@ -856,7 +856,7 @@ body {
     margin-top: 184px;
     margin-bottom: 66px;
 
-    @media (max-width: $md3+px) {
+    @media (max-width: ($md3+px)) {
         margin-top: 20px;
     }
 
@@ -870,7 +870,7 @@ body {
 
     // .benefits__body
     &__body {
-        @media (max-width: $md2+px) {
+        @media (max-width: ($md2+px)) {
             order: 2;
         }
 
@@ -972,7 +972,7 @@ body {
 
     }
 
-    @media (max-width: $md3+px) {
+    @media (max-width: ($md3+px)) {
         position: static;
         min-width: 0;
         // order: 1;
@@ -984,7 +984,7 @@ body {
     &__body {
         width: 432px;
 
-        @media (max-width: $md3+px) {
+        @media (max-width: ($md3+px)) {
             // width: auto;
             padding: 20px 10px 20px 10px;
             margin: -20px auto;
@@ -1038,7 +1038,7 @@ body {
 
     // .slider-main__arrows
     &__arrows {
-        @media (max-width: $md3+px) {
+        @media (max-width: ($md3+px)) {
             width: 100%;
             left: 0;
         }
@@ -1056,7 +1056,7 @@ body {
     z-index: 1 !important;
 
     // transform: translateX(42px);
-    @media (max-width: $md3+px) {
+    @media (max-width: ($md3+px)) {
         top: 200px !important;
     }
 
@@ -1096,7 +1096,7 @@ body {
 }
 
 .selection-list {
-    @media (max-width: $md3+px) {
+    @media (max-width: ($md3+px)) {
         justify-content: space-around;
     }
 
@@ -1116,13 +1116,6 @@ body {
             background: #EE4A4A;
             border: none;
             color: white;
-
-            @media (any-hover: hover) {
-                &:hover {
-                    background: #EE4A4A;
-                }
-            }
-
         }
 
         @media (any-hover: hover) {
@@ -1148,7 +1141,7 @@ body {
     position: relative;
     padding-bottom: 35px;
 
-    @media (max-width: $md4+px) {
+    @media (max-width: ($md4+px)) {
         padding-bottom: 60px;
     }
 
@@ -1165,11 +1158,11 @@ body {
             margin: 0 auto !important;
         }
 
-        @media (max-width: $md3+px) {
+        @media (max-width: ($md3+px)) {
             width: 342px !important;
         }
 
-        @media (max-width: $md4+px) {
+        @media (max-width: ($md4+px)) {
             width: 100% !important;
         }
 
@@ -1194,7 +1187,7 @@ body {
             left: 0;
         }
 
-        @media (max-width: $md4+px) {
+        @media (max-width: ($md4+px)) {
             display: none;
         }
 
@@ -1595,7 +1588,7 @@ body {
         justify-content: space-between;
         flex-wrap: wrap;
 
-        @media (max-width: $md2+px) {}
+        @media (max-width: ($md2+px)) {}
 
     }
 
@@ -1603,14 +1596,14 @@ body {
     &__content {
         z-index: 10;
 
-        @media (max-width: $md2+px) {
+        @media (max-width: ($md2+px)) {
             flex: 0 0 100%
         }
 
         font-size: 15px;
         line-height: 120%;
 
-        @media (max-width: $md2+px) {
+        @media (max-width: ($md2+px)) {
             font-size: 20px;
         }
 
@@ -1628,7 +1621,7 @@ body {
         font-size: 20px;
         margin-bottom: 28px;
 
-        @media (max-width: $md2+px) {
+        @media (max-width: ($md2+px)) {
             font-size: 24px;
         }
 
@@ -1669,7 +1662,7 @@ body {
     position: relative;
     max-width: 610px;
 
-    @media (max-width: $md2+px) {
+    @media (max-width: ($md2+px)) {
         width: 100%;
         max-width: 100%;
         margin-top: 100px;
@@ -1684,7 +1677,7 @@ body {
 
     // .photo-about__cirlce
     &__cirlce {
-        @media (max-width: $md3+px) {
+        @media (max-width: ($md3+px)) {
             display: none;
         }
 
@@ -1710,7 +1703,7 @@ body {
             height: 216px;
             z-index: 4;
 
-            @media (max-width: $md3+px) {
+            @media (max-width: ($md3+px)) {
                 display: block;
                 width: 150px;
                 height: 150px;
@@ -1750,7 +1743,7 @@ body {
     width: 358px;
     height: 357px;
 
-    @media (max-width: $md3+px) {
+    @media (max-width: ($md3+px)) {
         width: 250px;
         height: 255px;
     }
@@ -1807,7 +1800,7 @@ body {
     &__body {
         padding-top: 126px;
 
-        @media (max-width: $md2+px) {
+        @media (max-width: ($md2+px)) {
             width: 100%;
         }
 
@@ -1824,7 +1817,7 @@ body {
 
     // .contacts__photo
     &__photo {
-        @media (max-width: $md2+px) {
+        @media (max-width: ($md2+px)) {
             display: none;
         }
 
@@ -1839,7 +1832,7 @@ body {
         grid-template-columns: repeat(2, minmax(100px, 258px));
         gap: 47px 21px;
 
-        @media (max-width: $md2+px) {
+        @media (max-width: ($md2+px)) {
             grid-template-columns: repeat(2, minmax(100px, 1fr));
         }
 
@@ -2054,7 +2047,7 @@ body {
             margin-right: 20px;
         }
         
-        @media (max-width: $md3+px) {
+        @media (max-width: ($md3+px)) {
             flex-wrap: wrap;
         }
         
