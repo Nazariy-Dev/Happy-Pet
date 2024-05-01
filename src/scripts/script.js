@@ -1,7 +1,7 @@
 import './sliders'
 import './mustache.min.js'
+import { getImagePath } from './utils.js';
 import mustache from 'mustache';
-console.log(mustache)
 import petsList from './pets-list.json'
 
 const isMobile = {
@@ -185,6 +185,8 @@ function loadItems(data, itemButton) {
     petsSlider.innerHTML = "";
 
     data.petsList.forEach(pet => {
+        pet.image = './assets/' + pet.image
+
         if (petType == "all") {
             let renderedHtml = mustache.render(petCardTemplate, pet);
             petsSlider.innerHTML += renderedHtml;
