@@ -1,5 +1,5 @@
 import './sliders'
-import './mustache.min.js'
+// import './mustache.min.js' 
 import mustache from 'mustache';
 import petsList from './pets-list.json'
 
