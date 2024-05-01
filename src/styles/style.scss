@@ -36,9 +36,9 @@ body {
     -webkit-tap-highlight-color: transparent;
 }
 
-body._lock {
-    // overflow: hidden;
-}
+// body._lock {
+//     overflow: hidden;
+// }
 
 //<ОБОЛОЧКА>===============================================================================
 //</ОБОЛОЧКА>==============================================================================
@@ -263,6 +263,7 @@ body._lock {
 .cart-header {
 
     &._active {
+
         .body-cart {
             visibility: visible;
             opacity: 1;
