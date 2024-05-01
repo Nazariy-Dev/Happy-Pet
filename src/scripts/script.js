@@ -1,5 +1,7 @@
 import './sliders'
 import './mustache.min.js'
+import mustache from 'mustache';
+console.log(mustache)
 import petsList from './pets-list.json'
 
 const isMobile = {
@@ -184,11 +186,11 @@ function loadItems(data, itemButton) {
 
     data.petsList.forEach(pet => {
         if (petType == "all") {
-            let renderedHtml = Mustache.render(petCardTemplate, pet);
+            let renderedHtml = mustache.render(petCardTemplate, pet);
             petsSlider.innerHTML += renderedHtml;
         }
         if (pet.type == petType) {
-            let renderedHtml = Mustache.render(petCardTemplate, pet);
+            let renderedHtml = mustache.render(petCardTemplate, pet);
             petsSlider.innerHTML += renderedHtml;
         }
     });
