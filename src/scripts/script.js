@@ -229,7 +229,7 @@ function addToCart(button) {
         product.querySelector(".item-count__number").innerHTML++
         productPrice.innerHTML = Number(productCount.innerHTML) * productPriceValue
     } else {
-        let renderedHtml = Mustache.render(template, {
+        let renderedHtml = mustache.render(template, {
             title: cardTitle,
             price: cardPrice,
             src: cardImageCopySrc,
