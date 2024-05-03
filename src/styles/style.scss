@@ -1253,6 +1253,7 @@ body {
 
     }
 
+
     .swiper-pagination-bullet-active {
         background: rgba(0, 0, 0, 0.49);
     }
@@ -1461,6 +1462,7 @@ body {
         color: black;
         background: transparent;
     }
+
 }
 
 //Play
@@ -1490,8 +1492,6 @@ body {
 }
 
 .section-play {
-   
-
     display: grid;
     gap: 20px;
 
@@ -1538,6 +1538,7 @@ body {
             justify-content: center;
             align-items: center;
             background-color: rgba(0, 0, 0, .9);
+            border-radius: 0;
 
             @media (max-width: $maxWidth) {
                 padding: 0 14%;
@@ -1988,7 +1989,7 @@ body {
     &__text {
         flex: 1 1 100%;
         padding-bottom: 60px;
-        
+
 
         &:focus {
             padding-bottom: 0px;
@@ -2042,11 +2043,11 @@ body {
         &:not(:last-child) {
             margin-right: 20px;
         }
-        
+
         @media (max-width: ($md3+px)) {
             flex-wrap: wrap;
         }
-        
+
 
     }
 
